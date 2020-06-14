@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BookController@index')->name('book.index');
+
+Route::get('/search', 'BookController@search')->name('book.search');
+
+Route::get('/category/{category}', 'CategoryController@show')->name('category.show');
