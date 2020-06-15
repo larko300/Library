@@ -18,3 +18,5 @@ Route::get('/', 'BookController@index')->name('book.index');
 Route::get('/search', 'BookController@search')->name('book.search');
 
 Route::get('/category/{category}', 'CategoryController@show')->name('category.show');
+
+Auth::routes(['verify' => true]);
