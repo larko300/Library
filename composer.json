@@ -16,6 +16,7 @@
         "laravel/scout": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
+        "santigarcor/laratrust": "^6.1",
         "yab/laravel-scout-mysql-driver": "^3.0"
     },
     "require-dev": {
