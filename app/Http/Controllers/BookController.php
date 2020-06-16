@@ -27,7 +27,7 @@ class BookController extends Controller
             $books = Book::paginate(9);
         }
         $categories = Category::all();
-        return view('book', compact('books', 'categories'));
+        return view('book/index', compact('books', 'categories'));
     }
 
     public function search(Request $request)
@@ -38,6 +38,6 @@ class BookController extends Controller
         $books = Book::search($validated['query'])->paginate(9);
         $books->appends(['query' => $validated['query']])->links();
         $categories = Category::all();
-        return view('book', compact('books', 'categories'));
+        return view('book/index', compact('books', 'categories'));
     }
 }

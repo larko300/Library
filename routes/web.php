@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'BookController@index')->name('book.index');
+Route::get('/book', 'BookController@index')->name('book.index');
 
-Route::get('/search', 'BookController@search')->name('book.search');
+Route::get('/book/search', 'BookController@search')->name('book.search');
 
 Route::get('/category/{category}', 'CategoryController@show')->name('category.show');
+
+Route::resource('user', 'UserController', [
+    'except' => [ 'show', 'delete' ]
+]);
 
 Auth::routes(['verify' => true]);

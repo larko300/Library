@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="justify-content-center">
-        <ul class="nav justify-content-end mt-5">
+        @include('navbar')
+        <ul class="nav justify-content-end mt-5 ml-5">
             <li class="nav-item dropdown mr-1">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sort
