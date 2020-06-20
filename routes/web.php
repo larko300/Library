@@ -19,6 +19,10 @@ Route::get('/book/search', 'BookController@search')->name('book.search');
 
 Route::get('/category/{category}', 'CategoryController@show')->name('category.show');
 
+Route::resource('book', 'BookController', [
+    'except' => [ 'show', 'index']
+])->middleware(['role:admin']);
+
 Route::resource('user', 'UserController', [
     'except' => [ 'show', 'delete' ]
 ]);

@@ -13,8 +13,8 @@ class BookSeeder extends Seeder
      */
     public function run()
     {
-        $booksId = factory(App\Book::class, 10)->create()->pluck('id')->toArray();
-        $category = Category::find(2);
-        $category->books()->attach($booksId);
+        $books = factory(App\Book::class, 5)->create();
+        $category = Category::find(5);
+        $category->books()->saveMany($books);
     }
 }

@@ -11,8 +11,11 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
-            'name' => 'Poetry'
-        ]);
+        $categories = ['Arts & Music', 'Comics', 'Computers & Tech', 'Gay & Lesbian', 'Horror'];
+        foreach ($categories as $category) {
+            DB::table('categories')->insert([
+                'name' => $category
+            ]);
+        }
     }
 }

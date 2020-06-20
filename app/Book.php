@@ -22,8 +22,8 @@ class Book extends Model
         return ['name' => $array['name'], 'author' => $array['author'], 'description' => $array['description']];
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany('App\Category');
+        return $this->belongsTo('App\Category', 'category_id');
     }
 }

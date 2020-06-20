@@ -19,6 +19,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $books = $category->books()->paginate(9);
         $categories = Category::all();
-        return view('book', compact('books', 'categories'));
+        return view('book/index', compact('books', 'categories'));
     }
 }

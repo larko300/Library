@@ -19,6 +19,11 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </ul>
+        @role('admin')
+            <div class="float-right mt-2">
+                <a href="{{ route('book.create') }}"><button class="btn btn-success" type="submit">Create book</button></a>
+            </div>
+        @endrole
         <div class="row mt-5">
             <div class="col-2">
                 <div class="list-group">
@@ -29,27 +34,36 @@
                 </div>
             </div>
             <div class="col-10">
+                @include('success')
                 @foreach($books->chunk(3) as $chunked_books)
                     <div class="row">
                         @foreach($chunked_books as $book)
                             <div class="card col-4" style="width: 18rem;">
-                                <img class="card-img-top pt-3" src="{{ asset('image/'.$book->image) }}" alt="Card image cap">
+                                <img class="card-img-top pt-3" src="{{ $book->image }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $book->name }}</h5>
                                     <h6 class="card-subtitle mb-2">Author: {{ $book->author }}</h6>
                                     <p class="card-text">{{ $book->description }}</p>
                                     <p class="card-text">
-                                    @if($book->categories)
-                                        <ul>
-                                            @foreach($book->categories as $category)
+                                        @if($book->category)
+                                            <ul>
                                                 <li>
-                                                    {{ $category->name }}
+                                                    {{ $book->category->name }}
                                                 </li>
-                                            @endforeach
-                                        </ul>
-                                        @endif
-                                        </p>
+                                            </ul>
+                                         @endif
+                                     </p>
                                 </div>
+                                @role('admin')
+                                <div class="row mb-1 ml-1">
+                                    <a href="{{ route('book.edit', $book->id) }}"><button class="btn btn-outline-primary" type="submit">Edit</button></a>
+                                    <form class="nav-item form-inline" method="post" action="{{ route('book.destroy', $book->id) }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn-outline-danger" type="submit">Delete</button>
+                                    </form>
+                                </div>
+                                @endrole
                             </div>
                         @endforeach
                     </div>

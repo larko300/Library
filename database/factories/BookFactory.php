@@ -10,6 +10,6 @@ $factory->define(Book::class, function (Faker $faker) {
         'name' => $faker->name,
         'author' => $faker->name,
         'description' => $faker->text,
-        'created_at' => now()
+        'created_at' => now(),
     ];
 });
