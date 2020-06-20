@@ -28,3 +28,7 @@ Route::resource('user', 'UserController', [
 ]);
 
 Auth::routes(['verify' => true]);
+
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');

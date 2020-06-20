@@ -64,6 +64,18 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="col-md-10">
+                            <a href="/login/facebook" class="btn btn-block btn-social btn-facebook">
+                                <span class="fa fa-facebook"></span>
+                                Sign in with facebook
+                            </a>
+                            <a href="/login/google" class="btn btn-block btn-social btn-google">
+                                <span class="fa fa-facebook"></span>
+                                Sign in with google
+                            </a>
+                        </div>
+
                     </form>
                 </div>
             </div>
